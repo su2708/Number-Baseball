@@ -3,9 +3,23 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Number Baseball</title>
   </head>
   <body>
-    <header>Number Baseball</header>
+    <div>Number Baseball</div>
+    <div>
+      <!-- <form id="start" class="hidden">
+        <input type="submit" value="Game Start!!"/>
+      </form> -->
+      <button id="startBtn" class="hidden">Game start!!</button>
+      <form id="guessing" class="hidden">
+        <input type="number" required placeholder="Guess a number."/>
+      </form>
+      <ul id="guessing-list"></ul>
+    </div>
+    <h1 class="initial-number">0000</h1>
+    <script src="js/start.js"></script>
+    <script src="js/generator.js"></script>
   </body>
 </html>
