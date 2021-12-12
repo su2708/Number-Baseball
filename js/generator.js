@@ -1,6 +1,6 @@
 const initialNum = document.querySelector(".initial-number");
 const num_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-let given_num = "";
+let targetNumber = "";
 
 function getRandomNumber() {
   const randomNumList = [];
@@ -19,11 +19,11 @@ function getRandomNumber() {
 
   // 추출한 숫자들을 하나의 문자열로 합치기
   for(i=0; i<randomNumList.length; i++) {
-    given_num = given_num + randomNumList[i];
+    targetNumber = targetNumber + randomNumList[i];
   }
   
-  localStorage.setItem("givenNumber", given_num);
-  initialNum.innerText = given_num;
+  localStorage.setItem("targetNumber", targetNumber);
+  initialNum.innerText = targetNumber;
 }
 
 getRandomNumber();

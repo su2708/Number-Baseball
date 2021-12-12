@@ -9,14 +9,15 @@
   <body>
     <div>Number Baseball</div>
     <div>
-      <button id="startBtn" class="hidden">Game start!!</button>
+      <button id="startBtn">Game start!!</button>
       <form id="guessing" class="hidden">
-        <input type="text" required placeholder="Guess a number."/>
+        <input type="text" required placeholder="Guess a number." maxlength="4"/>
       </form>
       <ul id="guessing-list"></ul>
     </div>
     <h1 class="initial-number"></h1>
     <script src="js/start.js"></script>
     <script src="js/generator.js"></script>
+    <script src="js/game.js"></script>
   </body>
 </html>

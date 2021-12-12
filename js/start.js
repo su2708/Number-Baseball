@@ -9,8 +9,4 @@ function startGame(event) {
   guessingForm.classList.remove(HIDDEN);
 }
 
-if(guessingForm.className === HIDDEN) {
-  // show a start button
-  startBtn.classList.remove(HIDDEN);
-  startBtn.addEventListener("click", startGame);
-}
+startBtn.addEventListener("click", startGame);
