@@ -1,8 +1,12 @@
 // guessingForm is already declared in start.js
 const guessingInput = document.querySelector("input");
 const guessingList = document.querySelector("#guessing-list");
+const result = document.querySelector("#result");
+const restartBtn = document.getElementById("restart");
+const endBtn = document.getElementById("end");
 const target = localStorage.getItem("targetNumber").split("");
 
+const HOMERUN = "Homerun!";
 let innings = 1;
 
 function outCount(guessedNumber) {
@@ -27,7 +31,7 @@ function outCount(guessedNumber) {
   if(strike === 0 && ball === 0) {
     return "Out!";
   } else if (strike === 4) {
-    return "Homerun!";
+    return HOMERUN;
   } else {
     return `${strike} Strike ${ball} Ball`;
   }
@@ -50,6 +54,15 @@ function showResultOfGuess(guessedNumberObj) {
   guessingList.appendChild(li);
 }
 
+function showResultOfGame(guessedNumberObj) {
+  const obj = guessedNumberObj;
+  if(obj.count === HOMERUN) {
+    result.innerText = "You Win! Do you want to restart?";
+  } else {
+    result.innerText = `You Lose! The number is ${localStorage.getItem("targetNumber")}. Do you want to restart?`;
+  }
+}
+
 function handleListSubmit(event) {
   event.preventDefault();
   const guessedNumber = guessingInput.value;
@@ -61,6 +74,12 @@ function handleListSubmit(event) {
   }
   showResultOfGuess(guessedNumberObj);
   innings++;
+  if(guessedNumberObj.count === HOMERUN || innings > 9) {
+    guessingForm.classList.add(HIDDEN);
+    restartBtn.classList.remove(HIDDEN);
+    endBtn.classList.remove(HIDDEN);
+    showResultOfGame(guessedNumberObj);
+  }
 }
 
 guessingForm.addEventListener("submit", handleListSubmit);
