@@ -1,4 +1,3 @@
-const initialNum = document.querySelector(".initial-number");
 const num_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 let targetNumber = "";
 
@@ -23,7 +22,6 @@ function getRandomNumber() {
   }
   
   localStorage.setItem("targetNumber", targetNumber);
-  initialNum.innerText = targetNumber;
 }
 
 getRandomNumber();

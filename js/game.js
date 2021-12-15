@@ -2,8 +2,7 @@
 const guessingInput = document.querySelector("input");
 const guessingList = document.querySelector("#guessing-list");
 const result = document.querySelector("#result");
-const restartBtn = document.getElementById("restart");
-const endBtn = document.getElementById("end");
+const homeBtn = document.querySelector("#home");
 const target = localStorage.getItem("targetNumber").split("");
 
 const HOMERUN = "Homerun!";
@@ -57,9 +56,9 @@ function showResultOfGuess(guessedNumberObj) {
 function showResultOfGame(guessedNumberObj) {
   const obj = guessedNumberObj;
   if(obj.count === HOMERUN) {
-    result.innerText = "You Win! Do you want to restart?";
+    result.innerText =  `You Win!`;
   } else {
-    result.innerText = `You Lose! The number is ${localStorage.getItem("targetNumber")}. Do you want to restart?`;
+    result.innerText = `You Lose! The number is ${localStorage.getItem("targetNumber")}`;
   }
 }
 
@@ -76,8 +75,7 @@ function handleListSubmit(event) {
   innings++;
   if(guessedNumberObj.count === HOMERUN || innings > 9) {
     guessingForm.classList.add(HIDDEN);
-    restartBtn.classList.remove(HIDDEN);
-    endBtn.classList.remove(HIDDEN);
+    homeBtn.classList.remove(HIDDEN);
     showResultOfGame(guessedNumberObj);
   }
 }
